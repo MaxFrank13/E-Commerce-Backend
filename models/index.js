@@ -15,13 +15,13 @@ Category.hasMany(Product, {
   onDelete: 'CASCADE'
 });
 
-// Products belongToMany Tags (through ProductTag)
+// Products belongsToMany Tags (through ProductTag)
 Product.belongsToMany(Tag, {
   through: {
     model: ProductTag,
     unique: false
   },
-  as: 'tags-to-product'
+  as: 'tags'
 });
 
 // Tags belongToMany Products (through ProductTag)
@@ -30,7 +30,7 @@ Tag.belongsToMany(Product, {
     model: ProductTag,
     unique: false
   },
-  as: 'products-to-tag'
+  as: 'products'
 });
 
 module.exports = {
